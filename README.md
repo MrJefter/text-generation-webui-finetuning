@@ -25,6 +25,7 @@ chmod +x start_linux.sh
 ./start_linux.sh
 ```
 3. При установке выберите ```A) NVIDIA``` *(либо другое, в зависимости от вашей видеокарты)*
+
 ![](/gpu-choose.png)
 4. Дождитесь завершения установки
 5. Поместите в папку ```text-generation-webui/models``` свою модель
@@ -35,6 +36,7 @@ chmod +x start_linux.sh
 ```
 8. В браузере откройте ```http://127.0.0.1:7860/```
 9. Перейдите на вкладку ```Training```
+
 ![](/training-menu.png)
 * Рекомендуемые настройки для RTX 2060s+3070 (8+8GB VRAM):
 ```
@@ -45,13 +47,16 @@ chmod +x start_linux.sh
 "Cutoff Length" = 128
 Остальные настройки оставить дефолтными
 ```
+
 ![](/training-args.png)
 10. В меню ```Formatted dataset```:
 * Выберите ранее добавленный датасет в ```Dataset```
 * Выберите ```alpaca-format``` *(либо любой другой, который вы используете)* в ```Data Format```
 * ```Evaluation Dataset``` обязательно оставить ```None```
+
 ![](/formatted-dataset.png)
 11. Нажмите ```Start LoRA Training```
+
 ![](/start-training.png)
 12. По окончании процесса LoRA будет находиться в папке text-generation-webui/loras
 
@@ -71,10 +76,14 @@ nano start_linux.sh
 ```
 pip install git+https://github.com/sterlind/GPTQ-for-LLaMa.git@lora_4bit
 ```
+
+![](install_GPTQ.png)
 *После первого запуска (8) можно будет повторно отредактировать файл и убрать эту строку*
 * ctrl + s и ctrl + x
 ```
 nano webui.py
 ```
 * В переменной ```CMD_FLAGS``` к уже имеющимся аргументам дописать ```--monkey-patch```
+
+![](CMD_FLAGS.png)
 * ctrl + s и ctrl + x
