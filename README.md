@@ -24,24 +24,19 @@ chmod +x start_linux.sh
 ```
 ./start_linux.sh
 ```
-
 3. При установке выберите ```A) NVIDIA``` *(либо другое, в зависимости от вашей видеокарты)*
-
-4. Поместите в папку ```text-generation-webui/models``` свою модель
-
-5. Поместите в папку ```text-generation-webui/training/datasets``` свой датасет
-
-6. Выполните команду
+![](/gpu-choose.png)
+4. Дождитесь завершения установки
+5. Поместите в папку ```text-generation-webui/models``` свою модель
+6. Поместите в папку ```text-generation-webui/training/datasets``` свой датасет
+7. Выполните команду
 ```
 ./start_linux.sh
 ```
-
-7. В браузере откройте ```http://127.0.0.1:7860/```
-
-8. Перейдите на вкладку ```Training```
-
+8. В браузере откройте ```http://127.0.0.1:7860/```
+9. Перейдите на вкладку ```Training```
+![](/training-menu.png)
 * Рекомендуемые настройки для RTX 2060s+3070 (8+8GB VRAM):
-
 ```
 "Save every n steps" = 1024
 "Micro Batch Size" = 1
@@ -50,16 +45,15 @@ chmod +x start_linux.sh
 "Cutoff Length" = 128
 Остальные настройки оставить дефолтными
 ```
-
-9. В меню ```Formatted dataset```:
+![](/training-args.png)
+10. В меню ```Formatted dataset```:
 * Выберите ранее добавленный датасет в ```Dataset```
 * Выберите ```alpaca-format``` *(либо любой другой, который вы используете)* в ```Data Format```
 * ```Evaluation Dataset``` обязательно оставить ```None```
-
-10. Нажмите ```Start LoRA Training```
-
-11. По окончании процесса LoRA будет находиться в папке text-generation-webui/loras
-
+![](/formatted-dataset.png)
+11. Нажмите ```Start LoRA Training```
+![](/start-training.png)
+12. По окончании процесса LoRA будет находиться в папке text-generation-webui/loras
 
 # Дополнение для работы с 4bit моделями:
 
@@ -73,7 +67,7 @@ git clone https://github.com/johnsmith0031/alpaca_lora_4bit
 ```
 nano start_linux.sh
 ```
-* После строки ```conda activate @$INSTALL_ENV_DIR``` дописать
+* После строки ```conda activate @$INSTALL_ENV_DIR``` допишите
 ```
 pip install git+https://github.com/sterlind/GPTQ-for-LLaMa.git@lora_4bit
 ```
